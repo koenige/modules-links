@@ -17,3 +17,13 @@ CREATE TABLE `links` (
   PRIMARY KEY (`link_id`),
   KEY `catid` (`category_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `links_logs`;
+CREATE TABLE `links_logs` (
+  `ll_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `link_id` int(10) unsigned NOT NULL,
+  `access_date` datetime NOT NULL,
+  `access_ip` varbinary(16) DEFAULT NULL,
+  `referer` varchar(127) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ll_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
