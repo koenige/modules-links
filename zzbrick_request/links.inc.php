@@ -13,14 +13,21 @@
 
 
 function mod_links_links($params) {
+	global $zz_conf;
 	if (!empty($params)) return false;
 
 	if (!empty($_GET['go'])) {
-		$sql = 'SELECT link_url FROM links WHERE link_url = "%s"';
+		$sql = 'SELECT link_id, link_url FROM /*_PREFIX_*/links WHERE link_url = "%s"';
 		$sql = sprintf($sql, wrap_db_escape($_GET['go']));
-		$link = wrap_db_fetch($sql, '', 'single value');
+		$link = wrap_db_fetch($sql);
 		if ($link) {
-			return brick_format('%%% redirect '.$link.' %%%');
+			require $zz_conf['dir'].'/zzform.php';
+			$zz_conf['logging'] = false; // it does not make sense to log a log
+			$values = array();
+			$values['action'] = 'insert';
+			$values['POST']['link_id'] = $link['link_id'];
+			$ops = zzform_multi('links-logs', $values);
+			return brick_format('%%% redirect '.$link['link_url'].' %%%');
 		}
 		$page['status'] = 404;
 		$page['title'] = wrap_text('Link not found');
@@ -29,8 +36,8 @@ function mod_links_links($params) {
 	$sql = 'SELECT link_id
 		, link_title, link_url, links.description
 		, category
-		FROM links
-		LEFT JOIN categories USING (category_id)
+		FROM /*_PREFIX_*/links
+		LEFT JOIN /*_PREFIX_*/categories USING (category_id)
 		WHERE published = "yes"
 		ORDER BY categories.sequence, categories.category, links.sequence
 	';
