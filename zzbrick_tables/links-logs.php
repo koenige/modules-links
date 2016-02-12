@@ -40,7 +40,7 @@ $zz['fields'][4]['type_detail'] = 'ip';
 $zz['fields'][4]['default'] = $_SERVER['REMOTE_ADDR'];
 
 $zz['fields'][5]['field_name'] = 'referer';
-$zz['fields'][5]['default'] = $_SERVER['HTTP_REFERER'];
+$zz['fields'][5]['default'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 
 $zz['sql'] = 'SELECT /*_PREFIX_*/links_logs.*, /*_PREFIX_*/links.link_url
 	FROM /*_PREFIX_*/links_logs
