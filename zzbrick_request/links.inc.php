@@ -12,7 +12,7 @@
  */
 
 
-function cms_links($params) {
+function mod_links_links($params) {
 	if (!empty($params)) return false;
 	
 	$sql = 'SELECT link_id
