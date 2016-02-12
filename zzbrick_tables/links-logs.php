@@ -40,6 +40,8 @@ $zz['fields'][4]['type_detail'] = 'ip';
 $zz['fields'][4]['default'] = $_SERVER['REMOTE_ADDR'];
 
 $zz['fields'][5]['field_name'] = 'referer';
+$zz['fields'][5]['type'] = 'hidden';
+$zz['fields'][5]['type_detail'] = 'url';
 $zz['fields'][5]['default'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 
 $zz['sql'] = 'SELECT /*_PREFIX_*/links_logs.*, /*_PREFIX_*/links.link_url
@@ -50,3 +52,5 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/links_logs.*, /*_PREFIX_*/links.link_url
 		USING (category_id)
 ';
 $zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/categories.sequence, /*_PREFIX_*/links.sequence, access_date';
+
+$zz_conf['edit'] = false;
