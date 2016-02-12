@@ -65,6 +65,9 @@ $zz['fields'][10]['default'] = 'yes';
 $zz['fields'][10]['hide_in_list'] = true;
 
 $zz['sql'] = 'SELECT /*_PREFIX_*/links.*, /*_PREFIX_*/categories.category
+		, (SELECT COUNT(link_id) 
+			FROM /*_PREFIX_*/links_logs
+			WHERE /*_PREFIX_*/links_logs.link_id = /*_PREFIX_*/links.link_id) + hits AS hits
 	FROM /*_PREFIX_*/links
 	LEFT JOIN /*_PREFIX_*/categories
 		USING (category_id)';
