@@ -49,4 +49,4 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/links_logs.*, /*_PREFIX_*/links.link_url
 	LEFT JOIN /*_PREFIX_*/categories
 		USING (category_id)
 ';
-$zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/categories.sequence, /*_PREFIX_*/links.sequence, access_time';
+$zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/categories.sequence, /*_PREFIX_*/links.sequence, access_date';
