@@ -14,6 +14,17 @@
 
 function mod_links_links($params) {
 	if (!empty($params)) return false;
+
+	if (!empty($_GET['go'])) {
+		$sql = 'SELECT link_url FROM links WHERE link_url = "%s"';
+		$sql = sprintf($sql, wrap_db_escape($_GET['go']));
+		$link = wrap_db_fetch($sql, '', 'single value');
+		if ($link) {
+			return brick_format('%%% redirect '.$link.' %%%');
+		}
+		$page['status'] = 404;
+		$page['title'] = wrap_text('Link not found');
+	}
 	
 	$sql = 'SELECT link_id
 		, link_title, link_url, links.description
@@ -25,7 +36,8 @@ function mod_links_links($params) {
 	';
 	$links = wrap_db_fetch($sql, array('category', 'link_id'), 'list category links');
 	$links = array_values($links);
-	
+
 	$page['text'] = wrap_template('links', $links);
+	$page['query_strings'][] = 'go';
 	return $page;
 }
