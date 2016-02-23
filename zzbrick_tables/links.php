@@ -23,6 +23,12 @@ $zz['fields'][3]['field_name'] = 'link_title';
 $zz['fields'][3]['list_append_next'] = true;
 $zz['fields'][3]['list_suffix'] = '<br>';
 
+$zz['fields'][9]['field_name'] = 'link_identifier';
+$zz['fields'][9]['type'] = 'identifier';
+$zz['fields'][9]['fields'] = array('link_title');
+$zz['fields'][9]['hide_in_form'] = true;
+$zz['fields'][9]['hide_in_list'] = true;
+
 $zz['fields'][4]['title'] = 'URL';
 $zz['fields'][4]['field_name'] = 'link_url';
 $zz['fields'][4]['type'] = 'url';

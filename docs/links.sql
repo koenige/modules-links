@@ -8,6 +8,7 @@ CREATE TABLE `links` (
   `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `category_id` int(10) unsigned NOT NULL DEFAULT '0',
   `link_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `link_identifier` varchar(31) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `link_url` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created` datetime NOT NULL,
