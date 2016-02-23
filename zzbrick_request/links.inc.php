@@ -90,7 +90,7 @@ function mod_links_get_links($params) {
 
 	$sql = 'SELECT link_id
 			, REPLACE(link_url, "%%url%%", "%s") AS link_url
-			, link_title, links.description
+			, link_title, links.description, link_identifier
 			, category
 		FROM /*_PREFIX_*/links
 		LEFT JOIN /*_PREFIX_*/categories USING (category_id)
