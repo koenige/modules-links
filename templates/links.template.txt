@@ -12,7 +12,7 @@
 <h2>%%% item category %%%</h2>
 <ul>
 %%% loop links %%%
-<li><a href="?go=%%% item link_url rawurlencode %%%">%%% item link_title %%%<a> %%% item description %%%</a></li>
+<li><a href="?go=%%% item link_url rawurlencode %%%">%%% item link_title %%%</a>%%% item description " %s" %%%</li>
 %%% loop end %%%
 </ul>
 %%% loop end %%%
