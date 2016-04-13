@@ -48,6 +48,7 @@ $zz['fields'][2]['sql'] = 'SELECT category_id, category, description, main_categ
 $zz['fields'][2]['display_field'] = 'category';
 $zz['fields'][2]['show_hierarchy'] = 'main_category_id';
 $zz['fields'][2]['show_hierarchy_subtree'] = $zz_setting['category_ids']['links'];
+$zz['fields'][2]['group_in_list'] = true;
 
 $zz['fields'][8]['title_tab'] = 'Seq.';
 $zz['fields'][8]['field_name'] = 'sequence';
@@ -84,7 +85,3 @@ $zz['filter'][1]['type'] = 'list';
 $zz['filter'][1]['where'] = 'IF(STRCMP(published, "yes"), 2, 1)';
 $zz['filter'][1]['selection'][1] = wrap_text('yes');
 $zz['filter'][1]['selection'][2] = wrap_text('no');
-
-if (empty($_GET['order']) OR $_GET['order'] === 'category') {
-	$zz['list']['group'] = 'category_id';
-}
