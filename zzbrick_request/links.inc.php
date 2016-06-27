@@ -53,10 +53,12 @@ function mod_links_links_follow() {
 			$go = str_replace($qs, $qs_new, $_GET['go']);
 			$go = str_replace('%25', '%', $go);
 		}
-		$sql_2 = sprintf($sql, wrap_db_escape($go));
-		$link = wrap_db_fetch($sql_2);
-		if ($link) {
-			$link['link_url'] = str_replace('%url%', $replace, $link['link_url']);
+		if (!empty($go)) {
+			$sql_2 = sprintf($sql, wrap_db_escape($go));
+			$link = wrap_db_fetch($sql_2);
+			if ($link) {
+				$link['link_url'] = str_replace('%url%', $replace, $link['link_url']);
+			}
 		}
 	}
 	if ($link) {
