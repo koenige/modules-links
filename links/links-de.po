@@ -5,7 +5,7 @@
 # http://www.zugzwang.org/modules/links
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2016 Gustaf Mossakowski
+# @copyright Copyright © 2016-2017 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 msgid ""
@@ -26,3 +26,19 @@ msgstr ""
 #: zzbrick_request/links.php
 msgid "Link not found"
 msgstr "Link nicht gefunden"
+
+#: zzbrick_tables/links.php
+msgid "Foreign Source"
+msgstr "Fremdquelle"
+
+#: zzbrick_tables/links-organisations.php
+msgid "Links/Organisations"
+msgstr "Links/Organisationen"
+
+#: zzbrick_tables/links-dates.php
+msgid "Links/Dates"
+msgstr "Links/Termine"
+
+#: zzbrick_tables/links-dates.php
+msgid "Date"
+msgstr "Termin"

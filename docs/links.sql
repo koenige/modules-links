@@ -15,7 +15,10 @@ CREATE TABLE `links` (
   `hits` int(10) unsigned DEFAULT '0',
   `published` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'yes',
   `sequence` smallint(6) NOT NULL DEFAULT '0',
+  `foreign_source_id` int(10) unsigned DEFAULT NULL,
+  `foreign_key` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`link_id`),
+  UNIQUE `foreign_key` (`foreign_source_id`,`foreign_key`),
   KEY `catid` (`category_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -28,3 +31,23 @@ CREATE TABLE `links_logs` (
   `referer` varchar(127) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`ll_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `links_dates`;
+CREATE TABLE `links_dates` (
+  `link_date_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `link_id` int(10) unsigned NOT NULL,
+  `date_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`link_date_id`),
+  UNIQUE KEY `date_link` (`date_id`,`link_id`),
+  KEY `link_id` (`link_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `links_organisations`;
+CREATE TABLE `links_organisations` (
+  `link_org_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `link_id` int(10) unsigned NOT NULL,
+  `org_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`link_org_id`),
+  UNIQUE KEY `org_link` (`org_id`,`link_id`),
+  KEY `link_id` (`link_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

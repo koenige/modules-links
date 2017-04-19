@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2016 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2017 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -25,7 +25,7 @@ $zz['fields'][3]['list_suffix'] = '<br>';
 
 $zz['fields'][9]['field_name'] = 'link_identifier';
 $zz['fields'][9]['type'] = 'identifier';
-$zz['fields'][9]['fields'] = array('link_title');
+$zz['fields'][9]['fields'] = ['link_title'];
 $zz['fields'][9]['hide_in_form'] = true;
 $zz['fields'][9]['hide_in_list'] = true;
 
@@ -67,9 +67,42 @@ $zz['fields'][7]['type_detail'] = 'number';
 
 $zz['fields'][10]['field_name'] = 'published';
 $zz['fields'][10]['type'] = 'select';
-$zz['fields'][10]['enum'] = array('yes', 'no');
+$zz['fields'][10]['enum'] = ['yes', 'no'];
 $zz['fields'][10]['default'] = 'yes';
 $zz['fields'][10]['hide_in_list'] = true;
+
+$zz['fields'][11]['title'] = 'Foreign Source';
+$zz['fields'][11]['field_name'] = 'foreign_source_id';
+$zz['fields'][11]['type'] = 'number';
+$zz['fields'][11]['hide_in_list'] = true;
+
+$zz['fields'][12]['title'] = 'Foreign Key';
+$zz['fields'][12]['field_name'] = 'foreign_key';
+$zz['fields'][12]['type'] = 'number';
+$zz['fields'][12]['hide_in_list'] = true;
+
+include __DIR__.'/links-dates.php';
+$zz['fields'][13] = $zz_sub;
+$zz['fields'][13]['type'] = 'subtable';
+$zz['fields'][13]['min_records'] = 0;
+$zz['fields'][13]['max_records'] = 20;
+$zz['fields'][13]['form_display'] = 'lines';
+$zz['fields'][13]['title'] = 'Dates';
+$zz['fields'][13]['hide_in_list'] = true;
+$zz['fields'][13]['fields'][2]['type'] = 'foreign_key';
+unset($zz_sub);
+
+include __DIR__.'/links-organisations.php';
+$zz['fields'][14] = $zz_sub;
+$zz['fields'][14]['type'] = 'subtable';
+$zz['fields'][14]['min_records'] = 0;
+$zz['fields'][14]['max_records'] = 20;
+$zz['fields'][14]['form_display'] = 'lines';
+$zz['fields'][14]['title'] = 'Organisations';
+$zz['fields'][14]['hide_in_list'] = true;
+$zz['fields'][14]['fields'][2]['type'] = 'foreign_key';
+unset($zz_sub);
+
 
 $zz['sql'] = 'SELECT /*_PREFIX_*/links.*, /*_PREFIX_*/categories.category
 		, (SELECT COUNT(link_id) 
