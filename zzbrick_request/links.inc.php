@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014, 2016 Gustaf Mossakowski
+ * @copyright Copyright © 2014, 2016, 2018 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -64,7 +64,7 @@ function mod_links_links_follow() {
 	if ($link) {
 		require $zz_conf['dir'].'/zzform.php';
 		$zz_conf['logging'] = false; // it does not make sense to log a log
-		$values = array();
+		$values = [];
 		$values['action'] = 'insert';
 		$values['POST']['link_id'] = $link['link_id'];
 		$ops = zzform_multi('links-logs', $values);
@@ -84,8 +84,8 @@ function mod_links_links_follow() {
  */
 function mod_links_get_links($params) {
 	global $zz_setting;
+	if (!is_array($params)) $params = [$params];
 	if (count($params) > 1) return false;
-	if (!is_array($params)) $params = array($params);
 
 	$condition = !empty($params[0]) ? sprintf(' AND categories.path = "%s"', wrap_db_escape($params[0])) : '';
 	$self = $zz_setting['host_base'].$zz_setting['base'].$_SERVER['REQUEST_URI'];
@@ -104,7 +104,7 @@ function mod_links_get_links($params) {
 	if ($condition) {
 		$links = wrap_db_fetch($sql, 'link_id');
 	} else {
-		$links = wrap_db_fetch($sql, array('category', 'link_id'), 'list category links');
+		$links = wrap_db_fetch($sql, ['category', 'link_id'], 'list category links');
 		$links = array_values($links);
 	}
 	return $links;
