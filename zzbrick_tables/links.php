@@ -81,13 +81,13 @@ $zz['fields'][12]['field_name'] = 'foreign_key';
 $zz['fields'][12]['type'] = 'number';
 $zz['fields'][12]['hide_in_list'] = true;
 
-include __DIR__.'/links-dates.php';
+include __DIR__.'/links-events.php';
 $zz['fields'][13] = $zz_sub;
 $zz['fields'][13]['type'] = 'subtable';
 $zz['fields'][13]['min_records'] = 0;
 $zz['fields'][13]['max_records'] = 20;
 $zz['fields'][13]['form_display'] = 'lines';
-$zz['fields'][13]['title'] = 'Dates';
+$zz['fields'][13]['title'] = 'Events';
 $zz['fields'][13]['hide_in_list'] = true;
 $zz['fields'][13]['fields'][2]['type'] = 'foreign_key';
 unset($zz_sub);

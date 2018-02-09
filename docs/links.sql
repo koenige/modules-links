@@ -32,13 +32,13 @@ CREATE TABLE `links_logs` (
   PRIMARY KEY (`ll_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `links_dates`;
-CREATE TABLE `links_dates` (
-  `link_date_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `links_events`;
+CREATE TABLE `links_events` (
+  `link_event_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `link_id` int(10) unsigned NOT NULL,
-  `date_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`link_date_id`),
-  UNIQUE KEY `date_link` (`date_id`,`link_id`),
+  `event_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`link_event_id`),
+  UNIQUE KEY `event_link` (`event_id`,`link_id`),
   KEY `link_id` (`link_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
