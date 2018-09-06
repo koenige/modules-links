@@ -72,6 +72,8 @@ function mod_links_links_follow() {
 	}
 	$page['status'] = 404;
 	$page['title'] = wrap_text('Link not found');
+	$links = mod_links_get_links();
+	$page['text'] = wrap_template('links', $links);
 	return $page;
 }
 
@@ -82,7 +84,7 @@ function mod_links_links_follow() {
  *		[0]: path of link category
  * @return array $links
  */
-function mod_links_get_links($params) {
+function mod_links_get_links($params = []) {
 	global $zz_setting;
 	if (!is_array($params)) $params = [$params];
 	if (count($params) > 1) return false;
