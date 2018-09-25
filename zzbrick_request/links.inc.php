@@ -36,7 +36,7 @@ function mod_links_links_follow() {
 	global $zz_setting;
 	global $zz_conf;
 	
-	$sql = 'SELECT link_id, link_url FROM /*_PREFIX_*/links WHERE link_url = "%s"';
+	$sql = 'SELECT link_id, link_url FROM /*_PREFIX_*/links WHERE link_url = _latin1"%s"';
 	$sql_1 = sprintf($sql, wrap_db_escape($_GET['go']));
 	$link = wrap_db_fetch($sql_1);
 	if (!$link) {
@@ -73,6 +73,7 @@ function mod_links_links_follow() {
 	$page['status'] = 404;
 	$page['title'] = wrap_text('Link not found');
 	$links = mod_links_get_links();
+	$links['not_found'] = true;
 	$page['text'] = wrap_template('links', $links);
 	return $page;
 }

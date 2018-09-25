@@ -8,6 +8,15 @@
 # @copyright Copyright © 2016 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
+%%% condition if not_found %%%
+<p class="error"><strong>
+%%% language de %%%
+Der von Ihnen gewählte Link ist nicht in unserer Liste. Bitte wählen Sie einen anderen aus.
+%%% language en %%%
+The link you have chosen is not in our list. Please choose a different one.
+%%% language - %%%
+</strong></p>
+%%% condition endif %%%
 %%% loop start %%%
 <h2>%%% item category %%%</h2>
 <ul>
