@@ -45,6 +45,7 @@ function mod_links_links_follow() {
 		if ($qs) {
 			parse_str($qs, $qs_parsed);
 			foreach ($qs_parsed as $qs_key => $qs_value) {
+				if (is_array($qs_value)) continue;
 				if (!strstr($qs_value, $zz_setting['hostname'])) continue;
 				$qs_parsed[$qs_key] = '%url%';
 				$replace = rawurlencode($qs_value);
