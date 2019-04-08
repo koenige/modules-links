@@ -107,7 +107,7 @@ unset($zz_sub);
 $zz['sql'] = 'SELECT /*_PREFIX_*/links.*, /*_PREFIX_*/categories.category
 		, (SELECT COUNT(link_id) 
 			FROM /*_PREFIX_*/links_logs
-			WHERE /*_PREFIX_*/links_logs.link_id = /*_PREFIX_*/links.link_id) + hits AS hits
+			WHERE /*_PREFIX_*/links_logs.link_id = /*_PREFIX_*/links.link_id) + IFNULL(hits, 0) AS hits
 	FROM /*_PREFIX_*/links
 	LEFT JOIN /*_PREFIX_*/categories
 		USING (category_id)';
