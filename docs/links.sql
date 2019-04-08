@@ -29,7 +29,8 @@ CREATE TABLE `links_logs` (
   `access_date` datetime NOT NULL,
   `access_ip` varbinary(16) DEFAULT NULL,
   `referer` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`ll_id`)
+  PRIMARY KEY (`ll_id`),
+  KEY `link_id` (`link_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS `links_events`;
