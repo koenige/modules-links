@@ -27,19 +27,19 @@ $zz_sub['fields'][2]['sql'] = 'SELECT link_id, link_url
 	ORDER BY /*_PREFIX_*/categories.sequence, /*_PREFIX_*/links.sequence';
 $zz_sub['fields'][2]['display_field'] = 'link_url';
 
-$zz_sub['fields'][3]['title'] = 'Organisation';
+$zz_sub['fields'][3]['title'] = 'Contact';
 $zz_sub['fields'][3]['field_name'] = 'contact_id';
 $zz_sub['fields'][3]['type'] = 'select';
-$zz_sub['fields'][3]['sql'] = 'SELECT contact_id, organisation
+$zz_sub['fields'][3]['sql'] = 'SELECT contact_id, contact
 	FROM /*_PREFIX_*/contacts
-	ORDER BY organisation';
-$zz_sub['fields'][3]['display_field'] = 'organisation';
+	ORDER BY contact';
+$zz_sub['fields'][3]['display_field'] = 'contact';
 
 $zz_sub['sql'] = 'SELECT /*_PREFIX_*/links_contacts.*
 		, /*_PREFIX_*/links.link_url
-		, /*_PREFIX_*/contacts.organisation
+		, /*_PREFIX_*/contacts.contact
 	FROM /*_PREFIX_*/links_contacts
 	LEFT JOIN /*_PREFIX_*/links USING (link_id)
 	LEFT JOIN /*_PREFIX_*/contacts USING (contact_id)
 ';
-$zz_sub['sqlorder'] = ' ORDER BY /*_PREFIX_*/links.sequence, /*_PREFIX_*/contacts.organisation';
+$zz_sub['sqlorder'] = ' ORDER BY /*_PREFIX_*/links.sequence, /*_PREFIX_*/contacts.contact';
