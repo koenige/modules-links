@@ -7,7 +7,7 @@
  * http://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2017 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2017, 2020 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -81,8 +81,7 @@ $zz['fields'][12]['field_name'] = 'foreign_key';
 $zz['fields'][12]['type'] = 'number';
 $zz['fields'][12]['hide_in_list'] = true;
 
-include __DIR__.'/links-events.php';
-$zz['fields'][13] = $zz_sub;
+$zz['fields'][13] = zzform_include_table('links-events');
 $zz['fields'][13]['type'] = 'subtable';
 $zz['fields'][13]['min_records'] = 0;
 $zz['fields'][13]['max_records'] = 20;
@@ -90,10 +89,8 @@ $zz['fields'][13]['form_display'] = 'lines';
 $zz['fields'][13]['title'] = 'Events';
 $zz['fields'][13]['hide_in_list'] = true;
 $zz['fields'][13]['fields'][2]['type'] = 'foreign_key';
-unset($zz_sub);
 
-include __DIR__.'/links-organisations.php';
-$zz['fields'][14] = $zz_sub;
+$zz['fields'][14] = zzform_include_table('links-contacts');
 $zz['fields'][14]['type'] = 'subtable';
 $zz['fields'][14]['min_records'] = 0;
 $zz['fields'][14]['max_records'] = 20;
@@ -101,7 +98,6 @@ $zz['fields'][14]['form_display'] = 'lines';
 $zz['fields'][14]['title'] = 'Organisations';
 $zz['fields'][14]['hide_in_list'] = true;
 $zz['fields'][14]['fields'][2]['type'] = 'foreign_key';
-unset($zz_sub);
 
 
 $zz['sql'] = 'SELECT /*_PREFIX_*/links.*, /*_PREFIX_*/categories.category
