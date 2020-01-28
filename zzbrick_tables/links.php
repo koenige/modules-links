@@ -95,7 +95,7 @@ $zz['fields'][14]['type'] = 'subtable';
 $zz['fields'][14]['min_records'] = 0;
 $zz['fields'][14]['max_records'] = 20;
 $zz['fields'][14]['form_display'] = 'lines';
-$zz['fields'][14]['title'] = 'Organisations';
+$zz['fields'][14]['title'] = 'Contacts';
 $zz['fields'][14]['hide_in_list'] = true;
 $zz['fields'][14]['fields'][2]['type'] = 'foreign_key';
 

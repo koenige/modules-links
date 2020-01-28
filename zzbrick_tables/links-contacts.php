@@ -2,7 +2,7 @@
 
 /**
  * Zugzwang Project
- * Table with links for organisations
+ * Table with links for contacts
  *
  * http://www.zugzwang.org/modules/links
  *
@@ -31,15 +31,15 @@ $zz_sub['fields'][3]['title'] = 'Organisation';
 $zz_sub['fields'][3]['field_name'] = 'contact_id';
 $zz_sub['fields'][3]['type'] = 'select';
 $zz_sub['fields'][3]['sql'] = 'SELECT contact_id, organisation
-	FROM /*_PREFIX_*/organisations
+	FROM /*_PREFIX_*/contacts
 	ORDER BY organisation';
 $zz_sub['fields'][3]['display_field'] = 'organisation';
 
 $zz_sub['sql'] = 'SELECT /*_PREFIX_*/links_contacts.*
 		, /*_PREFIX_*/links.link_url
-		, /*_PREFIX_*/organisations.organisation
+		, /*_PREFIX_*/contacts.organisation
 	FROM /*_PREFIX_*/links_contacts
 	LEFT JOIN /*_PREFIX_*/links USING (link_id)
-	LEFT JOIN /*_PREFIX_*/organisations USING (contact_id)
+	LEFT JOIN /*_PREFIX_*/contacts USING (contact_id)
 ';
-$zz_sub['sqlorder'] = ' ORDER BY /*_PREFIX_*/links.sequence, /*_PREFIX_*/organisations.organisation';
+$zz_sub['sqlorder'] = ' ORDER BY /*_PREFIX_*/links.sequence, /*_PREFIX_*/contacts.organisation';
