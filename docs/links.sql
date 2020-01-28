@@ -43,12 +43,12 @@ CREATE TABLE `links_events` (
   KEY `link_id` (`link_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `links_organisations`;
-CREATE TABLE `links_organisations` (
-  `link_org_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `links_contacts`;
+CREATE TABLE `links_contacts` (
+  `link_contact_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `link_id` int(10) unsigned NOT NULL,
   `contact_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`link_org_id`),
+  PRIMARY KEY (`link_contact_id`),
   UNIQUE KEY `contact_link` (`contact_id`,`link_id`),
   KEY `link_id` (`link_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

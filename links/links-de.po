@@ -5,7 +5,7 @@
 # http://www.zugzwang.org/modules/links
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2016-2018 Gustaf Mossakowski
+# @copyright Copyright © 2016-2018, 2020 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 msgid ""
@@ -32,8 +32,8 @@ msgid "Foreign Source"
 msgstr "Fremdquelle"
 
 #: zzbrick_tables/links-organisations.php
-msgid "Links/Organisations"
-msgstr "Links/Organisationen"
+msgid "Links/Contacts"
+msgstr "Links/Kontakte"
 
 #: zzbrick_tables/links-events.php
 msgid "Links/Events"

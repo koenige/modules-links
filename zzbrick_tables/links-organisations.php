@@ -12,8 +12,8 @@
  */
 
 
-$zz_sub['title'] = 'Links/Organisations';
-$zz_sub['table'] = '/*_PREFIX_*/links_organisations';
+$zz_sub['title'] = 'Links/Contacts';
+$zz_sub['table'] = '/*_PREFIX_*/links_contacts';
 
 $zz_sub['fields'][1]['field_name'] = 'link_org_id';
 $zz_sub['fields'][1]['type'] = 'id';
@@ -35,10 +35,10 @@ $zz_sub['fields'][3]['sql'] = 'SELECT contact_id, organisation
 	ORDER BY organisation';
 $zz_sub['fields'][3]['display_field'] = 'organisation';
 
-$zz_sub['sql'] = 'SELECT /*_PREFIX_*/links_organisations.*
+$zz_sub['sql'] = 'SELECT /*_PREFIX_*/links_contacts.*
 		, /*_PREFIX_*/links.link_url
 		, /*_PREFIX_*/organisations.organisation
-	FROM /*_PREFIX_*/links_organisations
+	FROM /*_PREFIX_*/links_contacts
 	LEFT JOIN /*_PREFIX_*/links USING (link_id)
 	LEFT JOIN /*_PREFIX_*/organisations USING (contact_id)
 ';
