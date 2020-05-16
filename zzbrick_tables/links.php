@@ -22,6 +22,8 @@ $zz['fields'][3]['title'] = 'Title';
 $zz['fields'][3]['field_name'] = 'link_title';
 $zz['fields'][3]['list_append_next'] = true;
 $zz['fields'][3]['list_suffix'] = '<br>';
+$zz['fields'][3]['if'][1]['list_prefix'] = '<del>';
+$zz['fields'][3]['if'][1]['list_suffix'] = '<del><br>';
 
 $zz['fields'][9]['field_name'] = 'link_identifier';
 $zz['fields'][9]['type'] = 'identifier';
@@ -114,3 +116,6 @@ $zz['filter'][1]['type'] = 'list';
 $zz['filter'][1]['where'] = 'IF(STRCMP(published, "yes"), 2, 1)';
 $zz['filter'][1]['selection'][1] = wrap_text('yes');
 $zz['filter'][1]['selection'][2] = wrap_text('no');
+
+$zz['conditions'][1]['scope'] = 'record';
+$zz['conditions'][1]['where'] = 'published = "no"';
