@@ -49,7 +49,7 @@ $zz['fields'][2]['sql'] = 'SELECT category_id, category, description, main_categ
 	ORDER BY sequence, category';
 $zz['fields'][2]['display_field'] = 'category';
 $zz['fields'][2]['show_hierarchy'] = 'main_category_id';
-$zz['fields'][2]['show_hierarchy_subtree'] = $zz_setting['category_ids']['links'];
+$zz['fields'][2]['show_hierarchy_subtree'] = wrap_category_id('links');
 $zz['fields'][2]['group_in_list'] = true;
 
 $zz['fields'][8]['title_tab'] = 'Seq.';
