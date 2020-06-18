@@ -92,7 +92,7 @@ function mod_links_get_links($params = []) {
 	if (count($params) > 1) return false;
 
 	$condition = !empty($params[0]) ? sprintf(' AND categories.path = "%s"', wrap_db_escape($params[0])) : '';
-	$self = $zz_setting['host_base'].$zz_setting['base'].$_SERVER['REQUEST_URI'];
+	$self = $zz_setting['host_base'].$zz_setting['request_uri'];
 
 	$sql = 'SELECT link_id
 			, REPLACE(link_url, "%%url%%", "%s") AS link_url
@@ -107,6 +107,7 @@ function mod_links_get_links($params = []) {
 	$sql = sprintf($sql, rawurlencode($self), $condition);
 	if ($condition) {
 		$links = wrap_db_fetch($sql, 'link_id');
+		$links = wrap_translate($links, 'links');
 	} else {
 		$links = wrap_db_fetch($sql, ['category', 'link_id'], 'list category links');
 		$links = array_values($links);
