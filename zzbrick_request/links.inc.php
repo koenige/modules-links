@@ -1,13 +1,14 @@
 <?php 
 
 /**
- * Zugzwang Project
+ * links module
  * Output of links
  *
- * http://www.zugzwang.org/modules/links
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014, 2016, 2018 Gustaf Mossakowski
+ * @copyright Copyright © 2014, 2016, 2018, 2021 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -69,7 +70,7 @@ function mod_links_links_follow() {
 		$values['action'] = 'insert';
 		$values['POST']['link_id'] = $link['link_id'];
 		$ops = zzform_multi('links-logs', $values);
-		return brick_format('%%% redirect '.$link['link_url'].' %%%');
+		wrap_redirect($link['link_url']);
 	}
 	$page['status'] = 404;
 	$page['title'] = wrap_text('Link not found');
