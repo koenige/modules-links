@@ -60,6 +60,7 @@ function mod_links_links_follow() {
 			$link = wrap_db_fetch($sql_2);
 			if ($link) {
 				$link['link_url'] = str_replace('%url%', $replace, $link['link_url']);
+				$zz_setting['cache'] = false; // do not cache these links, too many
 			}
 		}
 	}
