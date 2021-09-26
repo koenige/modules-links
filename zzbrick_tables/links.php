@@ -1,10 +1,11 @@
 <?php 
 
 /**
- * Zugzwang Project
+ * links module
  * Table with links
  *
- * http://www.zugzwang.org/modules/links
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2014-2017, 2020 Gustaf Mossakowski

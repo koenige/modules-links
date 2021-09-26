@@ -1,9 +1,10 @@
 <?php 
 
 /**
- * Zugzwang Project
+ * links module
  * Table with log for links
  *
+ * Part of »Zugzwang Project«
  * http://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>

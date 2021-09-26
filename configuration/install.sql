@@ -1,8 +1,9 @@
 /**
- * Zugzwang Project
- * SQL for installation of links module
+ * links module
+ * SQL for installation
  *
- * http://www.zugzwang.org/modules/links
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2018-2021 Gustaf Mossakowski
