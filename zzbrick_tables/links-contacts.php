@@ -1,13 +1,14 @@
 <?php 
 
 /**
- * Zugzwang Project
+ * links module
  * Table with links for contacts
  *
- * http://www.zugzwang.org/modules/links
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017, 2020 Gustaf Mossakowski
+ * @copyright Copyright © 2017, 2020-2021 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -15,7 +16,7 @@
 $zz_sub['title'] = 'Links/Contacts';
 $zz_sub['table'] = '/*_PREFIX_*/links_contacts';
 
-$zz_sub['fields'][1]['field_name'] = 'link_org_id';
+$zz_sub['fields'][1]['field_name'] = 'link_contact_id';
 $zz_sub['fields'][1]['type'] = 'id';
 
 $zz_sub['fields'][2]['field_name'] = 'link_id';
