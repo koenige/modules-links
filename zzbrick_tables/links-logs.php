@@ -5,7 +5,7 @@
  * Table with log for links
  *
  * Part of »Zugzwang Project«
- * http://www.zugzwang.org/modules/links
+ * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
  * @copyright Copyright © 2016, 2018 Gustaf Mossakowski
