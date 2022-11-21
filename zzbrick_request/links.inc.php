@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014, 2016, 2018, 2021 Gustaf Mossakowski
+ * @copyright Copyright © 2014, 2016, 2018, 2021-2022 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -35,7 +35,6 @@ function mod_links_links($params) {
  */
 function mod_links_links_follow() {
 	global $zz_setting;
-	global $zz_conf;
 	
 	$sql = 'SELECT link_id, link_url FROM /*_PREFIX_*/links WHERE link_url = _latin1"%s"';
 	$sql_1 = sprintf($sql, wrap_db_escape($_GET['go']));
@@ -65,8 +64,7 @@ function mod_links_links_follow() {
 		}
 	}
 	if ($link) {
-		require $zz_conf['dir'].'/zzform.php';
-		$zz_conf['logging'] = false; // it does not make sense to log a log
+		$zz_setting['zzform_logging'] = false; // it does not make sense to log a log
 		$values = [];
 		$values['action'] = 'insert';
 		$values['POST']['link_id'] = $link['link_id'];
