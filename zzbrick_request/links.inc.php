@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014, 2016, 2018, 2021-2022 Gustaf Mossakowski
+ * @copyright Copyright © 2014, 2016, 2018, 2021-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -34,8 +34,6 @@ function mod_links_links($params) {
  * @return array $page
  */
 function mod_links_links_follow() {
-	global $zz_setting;
-	
 	$sql = 'SELECT link_id, link_url FROM /*_PREFIX_*/links WHERE link_url = _latin1"%s"';
 	$sql_1 = sprintf($sql, wrap_db_escape($_GET['go']));
 	$link = wrap_db_fetch($sql_1);
@@ -46,7 +44,7 @@ function mod_links_links_follow() {
 			parse_str($qs, $qs_parsed);
 			foreach ($qs_parsed as $qs_key => $qs_value) {
 				if (is_array($qs_value)) continue;
-				if (!strstr($qs_value, $zz_setting['hostname'])) continue;
+				if (!strstr($qs_value, wrap_setting('hostname'))) continue;
 				$qs_parsed[$qs_key] = '%url%';
 				$replace = rawurlencode($qs_value);
 			}
@@ -59,12 +57,12 @@ function mod_links_links_follow() {
 			$link = wrap_db_fetch($sql_2);
 			if ($link) {
 				$link['link_url'] = str_replace('%url%', $replace, $link['link_url']);
-				$zz_setting['cache'] = false; // do not cache these links, too many
+				wrap_setting('cache', false); // do not cache these links, too many
 			}
 		}
 	}
 	if ($link) {
-		$zz_setting['zzform_logging'] = false; // it does not make sense to log a log
+		wrap_setting('zzform_logging', false); // it does not make sense to log a log
 		$values = [];
 		$values['action'] = 'insert';
 		$values['POST']['link_id'] = $link['link_id'];
@@ -87,12 +85,11 @@ function mod_links_links_follow() {
  * @return array $links
  */
 function mod_links_get_links($params = []) {
-	global $zz_setting;
 	if (!is_array($params)) $params = [$params];
 	if (count($params) > 1) return false;
 
 	$condition = !empty($params[0]) ? sprintf(' AND categories.path = "%s"', wrap_db_escape($params[0])) : '';
-	$self = $zz_setting['host_base'].$zz_setting['request_uri'];
+	$self = wrap_setting('host_base').wrap_setting('request_uri');
 
 	$sql = 'SELECT link_id
 			, REPLACE(link_url, "%%url%%", "%s") AS link_url

@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2016, 2018 Gustaf Mossakowski
+ * @copyright Copyright © 2016, 2018, 2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -38,7 +38,7 @@ $zz['fields'][4]['title'] = 'Access IP';
 $zz['fields'][4]['field_name'] = 'access_ip';
 $zz['fields'][4]['type'] = 'hidden';
 $zz['fields'][4]['type_detail'] = 'ip';
-$zz['fields'][4]['default'] = $zz_setting['remote_ip'];
+$zz['fields'][4]['default'] = wrap_setting('remote_ip');
 
 $zz['fields'][5]['field_name'] = 'referer';
 $zz['fields'][5]['type'] = 'hidden';
