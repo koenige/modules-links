@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014-2017, 2020 Gustaf Mossakowski
+ * @copyright Copyright © 2014-2017, 2020, 2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -84,7 +84,7 @@ $zz['fields'][12]['field_name'] = 'foreign_key';
 $zz['fields'][12]['type'] = 'number';
 $zz['fields'][12]['hide_in_list'] = true;
 
-$zz['fields'][13] = zzform_include_table('links-events');
+$zz['fields'][13] = zzform_include('links-events');
 $zz['fields'][13]['type'] = 'subtable';
 $zz['fields'][13]['min_records'] = 0;
 $zz['fields'][13]['max_records'] = 20;
@@ -93,7 +93,7 @@ $zz['fields'][13]['title'] = 'Events';
 $zz['fields'][13]['hide_in_list'] = true;
 $zz['fields'][13]['fields'][2]['type'] = 'foreign_key';
 
-$zz['fields'][14] = zzform_include_table('links-contacts');
+$zz['fields'][14] = zzform_include('links-contacts');
 $zz['fields'][14]['type'] = 'subtable';
 $zz['fields'][14]['min_records'] = 0;
 $zz['fields'][14]['max_records'] = 20;
