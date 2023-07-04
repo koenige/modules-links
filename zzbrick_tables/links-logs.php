@@ -54,4 +54,4 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/links_logs.*, /*_PREFIX_*/links.link_url
 ';
 $zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/categories.sequence, /*_PREFIX_*/links.sequence, access_date';
 
-$zz_conf['edit'] = false;
+$zz['record']['edit'] = false;
