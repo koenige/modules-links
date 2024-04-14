@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2014, 2016, 2018, 2021-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2014, 2016, 2018, 2021-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -63,10 +63,7 @@ function mod_links_links_follow() {
 	}
 	if ($link) {
 		wrap_setting('zzform_logging', false); // it does not make sense to log a log
-		$values = [];
-		$values['action'] = 'insert';
-		$values['POST']['link_id'] = $link['link_id'];
-		$ops = zzform_multi('links-logs', $values);
+		zzform_insert('links-logs', ['link_id' => $link['link_id']]);
 		wrap_redirect($link['link_url']);
 	}
 	$page['status'] = 404;
