@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/links
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017-2018, 2021 Gustaf Mossakowski
+ * @copyright Copyright © 2017-2018, 2021, 2025 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -35,7 +35,7 @@ $zz['fields'][3]['sql'] = sprintf('SELECT event_id
 	, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%s")
 		, ")") AS event 
 	FROM /*_PREFIX_*/events
-	WHERE ISNULL(main_event_id)
+	WHERE /*_PREFIX_*/events.event_category_id = /*_ID categories event/event _*/
 	ORDER BY date_begin DESC', wrap_placeholder('mysql_date_format'));
 $zz['fields'][3]['display_field'] = 'event';
 $zz['fields'][3]['search'] = sprintf('CONCAT(/*_PREFIX_*/events.event, " (", 
