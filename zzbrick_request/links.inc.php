@@ -53,6 +53,13 @@ function mod_links_links_follow() {
 			$go = str_replace('%25', '%', $go);
 		}
 		if (!empty($go)) {
+			// check if hostname is canonical
+			// because a) some bots try out hostnames as they like
+			// and b) links with hostname where the hostname is not canonical do not work anyways
+			if (wrap_setting('canonical_hostname')) {
+				if (wrap_setting('canonical_hostname') !== wrap_setting('hostname'))
+					wrap_quit(400, 'This URL parameter only works with the canonical hostname.');
+			}
 			$sql_2 = sprintf($sql, wrap_db_escape($go));
 			$link = wrap_db_fetch($sql_2);
 			if ($link) {
