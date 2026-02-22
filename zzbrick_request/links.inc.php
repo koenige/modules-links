@@ -70,7 +70,7 @@ function mod_links_links_follow() {
 	}
 	if ($link) {
 		wrap_setting('zzform_logging', false); // it does not make sense to log a log
-		if (empty($_SERVER['HTTP_USER_AGENT']) OR !strstr($_SERVER['HTTP_USER_AGENT'], 'bot'))
+		if (!wrap_http_is_bot())
 			zzform_insert('links-logs', ['link_id' => $link['link_id']]);
 		wrap_redirect($link['link_url']);
 	}
